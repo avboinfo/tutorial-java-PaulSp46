@@ -34,4 +34,7 @@ public class Stack<T> {
         return s;
     }    
     
+    public int size(){
+        return list.size();
+    }
 }
