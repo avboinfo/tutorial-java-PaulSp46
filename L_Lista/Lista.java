@@ -12,13 +12,22 @@ public class Lista {
         return radice==null;
     }
 
-    public void add( Nodo n ) {
+    public void addTail( Nodo n ) {
         if (isEmpty()) {
             radice = n;
         } else {
             Nodo p = radice;
             while (p.getSuccessivo()!=null) p = p.getSuccessivo();
             p.setSuccessivo( n );
+        }
+    }
+
+    public void addHead(Nodo n){
+        if (isEmpty()){
+            radice = n;
+        } else{
+            n.setSuccessivo(radice);
+            radice = n;
         }
     }
 

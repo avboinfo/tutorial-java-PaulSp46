@@ -10,7 +10,7 @@ public class Main {
         System.out.println( l );
 
         for (int i=0; i<10; i++) {
-            l.add( new Nodo( i, null ));
+            l.addTail( new Nodo( i, null ));
         }
 
         System.out.println( l );
