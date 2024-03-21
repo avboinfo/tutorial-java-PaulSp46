@@ -30,8 +30,7 @@ public class Main {
         //System.out.println(l.addAfter(new Nodo(100, null), 7));
         System.out.println(l);
 
-        Lista.Iteratore iter = l.getIterator();
-        System.out.println(iter.next());
+        
     } 
 
 }

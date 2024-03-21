@@ -19,7 +19,7 @@ public class Lista {
             if (nodo==null) {
                 return null;
             }
-            Nodo result = new Nodo(nodo.getValore(), nodo.getSuccessivo());
+            Nodo result = nodo;
             return result;
         }
     }
@@ -103,6 +103,23 @@ public class Lista {
             next = counter.getSuccessivo();
         }
         return false;
+    }
+
+    public boolean addAfterIterator(Nodo n, int pos){
+        //aggiunge il nodo n solo dopo aver oltrepassato il nodo di indice pos
+        Iteratore iter = getIterator();
+        int i;
+        Nodo npos=null;
+        for(i=0; i<pos; i++){
+            if (iter.hasNext()) {
+                npos = iter.next();
+            } else{
+                return false;
+            }
+        }
+        n.setSuccessivo(npos.getSuccessivo());
+        npos.setSuccessivo(n);
+        return true;
     }
 
     public boolean removePos(int pos){
