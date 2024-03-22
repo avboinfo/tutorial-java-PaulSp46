@@ -8,23 +8,26 @@ public class ContoCorrente {
     public ContoCorrente(float saldo, String nome){
         this.saldo=saldo;
         this.nome = nome;
-        printLog("Conto di" + nome + " creato");
+        printLog("Conto di " + nome + " creato");
     }
 
     public ContoCorrente(String nome){
         this(0, nome);
     }
 
-    public void versamento(float vers){
+    public void versamento(float vers, Boolean bonifico){
         if (vers<=0) {
             System.out.println("Versamento non valido");
             return;
         }
         this.saldo+=vers;
-        printLog("Conto di " + nome + " - Versamento: " + vers);
+
+        if (!bonifico) {
+            printLog("Conto di " + nome + " - Versamento: " + vers);
+        }
     }
 
-    public void prelievo(float prel){
+    public void prelievo(float prel, Boolean bonifico){
         if (prel<=0) {
             System.out.println("Prelievo non valido");
             return;
@@ -34,7 +37,16 @@ public class ContoCorrente {
             return;
         }
         this.saldo-=prel;
-        printLog("Conto di " + nome + " - Prelievo: " + prel);
+
+        if(!bonifico){
+            printLog("Conto di " + nome + " - Prelievo: " + prel);
+        }
+    }
+
+    public void bonifico(ContoCorrente destinatario, float importo){
+        prelievo(importo, true);
+        destinatario.versamento(importo, true);
+        printLog("Conto di " + nome + " - Bonifico di " + importo + " al conto di " + destinatario.getNome());
     }
 
     public void calcInteresse(){
@@ -51,6 +63,10 @@ public class ContoCorrente {
         } catch (IOException e) {
             System.out.println("Messaggio: " + e.getMessage());
         }
+    }
+
+    public String getNome(){
+        return this.nome;
     }
 
     public String toString() {

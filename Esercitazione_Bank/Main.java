@@ -5,11 +5,10 @@ public class Main {
         ContoCorrente contoDiGiulietta = new ContoCorrente(2000, "Giulietta");
         ContoCorrente contoDiRomeo = new ContoCorrente( "Romeo");
 
-        contoDiGiulietta.prelievo(500);
-        contoDiGiulietta.prelievo(400);
+        contoDiGiulietta.prelievo(500, false);
+        contoDiGiulietta.prelievo(400, false);
 
-        contoDiRomeo.versamento(200);
-        contoDiRomeo.calcInteresse();
+        contoDiGiulietta.bonifico(contoDiRomeo, 200);
 
         System.out.println(contoDiGiulietta+"\n");
         System.out.println(contoDiRomeo);
