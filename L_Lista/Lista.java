@@ -1,6 +1,6 @@
 package L_Lista;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 
 public class Lista {
 
