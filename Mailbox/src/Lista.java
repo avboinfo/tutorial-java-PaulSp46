@@ -21,7 +21,7 @@ public class Lista<T> {
     }
 
     public void addTail(T v){
-        Nodo<T> n = new Nodo<T>(v);     //inserisce il paziente dentro un nodo
+        Nodo<T> n = new Nodo<T>(v);
         if(root == null){
             root = n;
         } else {
