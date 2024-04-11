@@ -10,5 +10,7 @@ public class Main {
         System.out.println(mailList);
 
         mailList.emailSearchString("k");
+
+        mailList.printLog();
     }
 }

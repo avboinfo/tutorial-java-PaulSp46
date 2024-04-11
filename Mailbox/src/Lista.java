@@ -72,13 +72,12 @@ public class Lista<T> {
 
     @Override
     public String toString() {
-        String s = "Elementi della lista:\n";
+        String s = "Elementi della tua Mailbox:\n";
         Nodo<T> tmp = root;
         while (tmp!=null) {
             s += tmp + "\n";
             tmp = tmp.getSuccessivo();
         }
-        s += "End!\n";
         return s;
     }
 }
